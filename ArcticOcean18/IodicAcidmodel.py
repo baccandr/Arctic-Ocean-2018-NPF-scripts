@@ -135,8 +135,14 @@ mpl.rcParams['font.size'] = 37
 
 
 #%% Iodic acid model
-def Iodic_acid_model(CIMS, BLH, CondSink, Visib, Weather_data, Diagn_figures = True):
-    
+def Iodic_acid_model(CIMS, BLH, CondSink, Visib, Weather, Diagn_figures = True):
+    '''
+    CIMS data: https://doi.org/10.17043/ao2018-aerosol-cims
+    Boundary layer height: https://doi.org/10.17043/ao2018-radiosonde-2
+    Condensation sink: TBD
+    Visibility: https://doi.org/10.17043/ao2018-present-weather
+    Weather: https://doi.org/10.17043/ao2018-misu-weather-2
+    '''
     # =============================================================================
     # Prepare data
     # =============================================================================
