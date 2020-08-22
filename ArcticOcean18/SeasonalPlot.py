@@ -5,13 +5,6 @@ Created on Sat Aug 22 14:53:33 2020
 @author: baccarini_a
 """
 
-
-# -*- coding: utf-8 -*-
-"""
-Created on Mon Jan 28 14:25:28 2019
-
-@author: baccarini_a
-"""
 import numpy as np
 import pandas as pd
 from pathlib import Path
