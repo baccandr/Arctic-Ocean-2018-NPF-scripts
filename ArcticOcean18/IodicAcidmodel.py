@@ -16,6 +16,23 @@ import seaborn as sns
 from math import atan2,degrees
 
 #%% Define deposition velocity
+def SA_DiffCoeff(T,P):
+    """This function scales sulfuric acid diffusion coefficient
+    to the real sampling temperature and pressure. This script
+    is based on Hanson and Eisele 2000. 
+    Input:
+        P in hPa
+        T in Kelvin
+    Output:
+        D in cm2/s
+    """
+    
+    Dref=0.0786
+    Patm=1013.25
+    Tref=298.
+    D=Dref*(Patm/P)*(T/Tref)**1.75   
+    return D
+
 def friction_velocity(Wspeed,height):
     k=0.4
     Z0=0.001
@@ -167,6 +184,8 @@ def Iodic_acid_model(CIMS, BLH, CondSink, Visib, Weather, Diagn_figures = True):
     
     # Modify BLH to account for wrong mixed layer height on 17 Sept. 
     # (personal communication with Jutta Vuellers)
+    invbase['2018-09-17 12']=90
+    # Resampling
     invbasers_10min=invbase.resample('10min').interpolate(method='time').dropna().reindex(master_time)
     invbasers_10min.name='BLH [m]'
     
